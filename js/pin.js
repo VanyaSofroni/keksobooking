@@ -1,12 +1,15 @@
 'use strict';
 
 (function() {
+
 	var NUMBER_ADS = 8;
 	var map = document.querySelector('.map');
 	var mapPinTemplate = document.querySelector('#ad-template').content.querySelector('.map__pin');
 	var mapPins = document.querySelector('.map__pins');
+	var selectorMapPin = '.map__pin:not(.map__pin--main)';
 
-	var renderMapPin = function(i, ad) {
+
+	var renderPin = function(i, ad) {
 		var mapPinElement = mapPinTemplate.cloneNode(true);
 
 		mapPinElement.setAttribute('data-count', i);
@@ -16,16 +19,28 @@
 		mapPinElement.querySelector('img').src = ad.author.avatar;
 
 		return mapPinElement;
-	}
+	};
 
-	window.pin = function(ads) {
+	var removePins = function() {
+		while (mapPins.querySelector(selectorMapPin)) {
+       mapPins.removeChild(mapPins.querySelector(selectorMapPin));
+     }
+	};
+
+	window.pin = function(adverts) { 
 		var fragment = document.createDocumentFragment();
 
-		for (var i = 0; i < ads.length; i++) {
-			fragment.appendChild(renderMapPin(i, ads[i]));
+		for (var i = 0; i < adverts.length; i++) {
+			fragment.appendChild(renderPin(i, adverts[i]));
 		}
 
+		removePins();
 		mapPins.appendChild(fragment);
-	}
+	};
+
+	var formContainer = document.querySelector('.map__filters');
+  formContainer.addEventListener('change', function() {
+    window.filter.changeHudler();
+  });
 
 })();

@@ -61,19 +61,18 @@
 		var popupClose = mapCardElement.querySelector('.popup__close');
 		popupClose.setAttribute('tabindex', 0); // фокус на popup__close
 		
-		var closePopup = function() {
+		var closePopup = function(event) {
 			mapCardElement.classList.add('hidden');
-			var i = Number(index) + 1; // явное приведение к числовому типу и увиличение на 1, т.к нам не интересен 0 элемент
-			mapPinList[i].classList.remove('map__pin--active'); // деактивация элемента .map__pin, который был помечен как активный
+			event.target.classList.remove('map__pin--active'); // деактивация элемента .map__pin, который был помечен как активный
 		};
 
 		popupClose.addEventListener('click', function(event) {
-			closePopup();
+			closePopup(event);
 		});
 
 		popupClose.addEventListener('keydown', function(event) {
 			if (event.keyCode === window.util.ENTER_KEYCODE) {
-				closePopup();
+				closePopup(event);
 			};
 		});
 
@@ -81,7 +80,7 @@
 		if (mapCardElement) {
 			document.addEventListener('keydown', function(event) {
 				if (event.keyCode === window.util.ESC_KEYCODE) {
-					closePopup();
+					closePopup(event);
 				};
 			})
 		};
