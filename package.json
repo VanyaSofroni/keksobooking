@@ -1,0 +1,23 @@
+{
+  "name": "keksobooking",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-htmlacademy": "^0.5.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "eslint js --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VanyaSofroni/keksobooking.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VanyaSofroni/keksobooking/issues"
+  },
+  "homepage": "https://github.com/VanyaSofroni/keksobooking#readme"
+}

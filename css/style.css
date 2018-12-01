@@ -227,6 +227,19 @@ textarea:focus {
 	border-bottom: 0;
 }
 
+.map__pin.map__pin--active {
+	outline: none;
+}
+
+.map__pin.map__pin--active img {
+	background-color: #ff5635;
+	box-shadow: 0 0 10px 10px rgba(255, 86, 53, 0.7);
+}
+
+.map__pin.map__pin--active::after {
+	border-top-color: #ff5635;
+}
+
 .map__pin:active {
 	outline: none;
 }
@@ -239,6 +252,8 @@ textarea:focus {
 .map__pin:active::after {
 	border-top-color: #ff5635;
 }
+
+
 
 .map__pin--main {
 	left: 50%;
@@ -519,7 +534,14 @@ textarea:focus {
 
 .form__element label {
 	display: block;
+	width: 100%;
 	padding-bottom: 5px;
+
+	cursor: pointer;
+}
+
+.form__element label button {
+	cursor: pointer;
 }
 
 .form__element input {
@@ -537,6 +559,10 @@ textarea:focus {
 	background-color: #fafafa;
 	border: solid 1px #eee;
 	border-radius: 3px;
+}
+
+.notice__form .feature:last-child {
+	margin-right: 0;
 }
 
 .notice__form input:checked + .feature {
@@ -589,22 +615,61 @@ textarea:focus {
 }
 
 .notice__form .drop-zone {
+	display: flex;
+	flex-wrap: wrap;
+
 	color: #999;
 	border: dashed 1px #c7c7c7;
 	border-radius: 5px;
 	text-align: center;
-	height: 70px;
+	max-height: 229px;
 	font-size: 14px;
 	box-sizing: border-box;
-	padding: 10px 10px 5px;
+	padding: 10px;
+	padding-top: 5px;
+	cursor: pointer;
+	overflow: auto;
+}
+
+.notice__form .drop-zone--avatar {
+	padding-top: 10px;
+
+	overflow: inherit;
 }
 
 .notice__form .drop-zone:hover {
 	color: #ff5635;
+	border: dashed 1px #ff5635
+}
+
+.notice__form .drop-zone.highlight {
+	color: #ff5635;
+	border: dashed 1px #ff5635;
 }
 
 .form__photo-container {
-	width: 140px;
+	/*width: 140px;*/
+	width: 100%;
+}
+
+.form__gallery {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
+
+.form__photo {
+	width: 18%;
+	margin-right: 7px;
+}
+
+.form__photo:last-child {
+	margin-right: 0;
+}
+
+.form__gallery img {
+	max-width: 100%;
+	height: auto;
 }
 
 .form__element--submit {
